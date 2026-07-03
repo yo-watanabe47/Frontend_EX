@@ -9,10 +9,10 @@ export interface IBookCategoryRepository {
      * @returns すべての商品カテゴリのリスト（非同期）
      */
     findAll(): Promise<BookCategory[]>;
-    /**
-     * 指定したIDの商品カテゴリを取得する
-     * @param id 商品カテゴリId(UUID)
-     * @returns 商品カテゴリ（非同期）
-     */
-    findById(id: string): Promise<BookCategory>;
+    // /**
+    //  * 指定したIDの商品カテゴリを取得する
+    //  * @param id 商品カテゴリId(UUID)
+    //  * @returns 商品カテゴリ（非同期）
+    //  */
+    // findById(id: string): Promise<BookCategory>;
 }

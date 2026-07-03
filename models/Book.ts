@@ -9,5 +9,5 @@ export interface Book {
     title: string;               // 商品名
     author: string;              // 著者
     category: BookCategory;  // 商品カテゴリ
-    stock: BookStock;        // 商品在庫数
+    stock: number;        // 商品在庫数
 }

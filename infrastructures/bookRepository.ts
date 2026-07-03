@@ -52,11 +52,7 @@ export class BookRepository implements IBookRepository {
         const books: Book[] = await response.json();
         return books;
     }
-    /**
-     * 演習 8-9 リポジトリの実装を作成する
-     * 商品の重複を検証する
-     * @param name 検証する商品名
-     */
+
     /**
      * 演習 8-9 リポジトリの実装を作成する
      * 商品の重複を検証する
@@ -65,8 +61,9 @@ export class BookRepository implements IBookRepository {
     async existsByName(name: string): Promise<void> {
         // const session = await getSession();
         // const token = (session as any)?.user?.token;
-        const params = new URLSearchParams({ bookName: name });
-        const response = await fetch(`//library/api/books/validate?${params.toString()}`, {
+        const params = new URLSearchParams({ Keyword: name });
+        // const response = await fetch(`/library/api/books/validate?${params.toString()}`, {　　　=>　原文
+        const response = await fetch(`/library/api/books?${params.toString()}`, {
             method: "GET",
             headers: {
                 // "Authorization": `Bearer ${token}`
@@ -95,7 +92,8 @@ export class BookRepository implements IBookRepository {
     async register(book: BookRegistration): Promise<Book> {
         // const session = await getSession();
         // const token = (session as any)?.user?.token;
-        const response = await fetch("/proxy-api/books/register", {
+                // const response = await fetch("/library/api/books/register", {
+        const response = await fetch("/library/api/books", {
             method: "POST",
             headers: {
                 // "Authorization": `Bearer ${token}`,

@@ -13,12 +13,12 @@ export interface IRegisterBookService {
      */
     getCategories(): Promise<BookCategory[]>;
 
-    /**
-     * カテゴリ選択時: 指定したIDの商品カテゴリ詳細を取得する
-     * @param id 商品カテゴリId(UUID)
-     * @return 商品カテゴリ（非同期）
-     */
-    getCategoryById(id: string): Promise<BookCategory>;
+    // /**
+    //  * カテゴリ選択時: 指定したIDの商品カテゴリ詳細を取得する
+    //  * @param id 商品カテゴリId(UUID)
+    //  * @return 商品カテゴリ（非同期）
+    //  */
+    // getCategoryById(id: string): Promise<BookCategory>;
 
     /**
      * 入力終了時: 商品名の重複を検証する

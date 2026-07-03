@@ -54,29 +54,29 @@ export const useRegisterBook = () => {
 
     // --- 入力の変更イベント ---
     const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-        const { title, value } = e.target;
+        const { name, value } = e.target;
         setFormData((prev) => ({
             ...prev,
             // authorとstockは数値に変換して保存する
-            [title]: title === "author" || title === "stock" ? Number(value) : value
+            [name]: name === "stock" ? Number(value) : value
         }));
     }, []);
 
     // --- カテゴリ選択時に詳細情報を取得する ---
     const handleCategoryChange = useCallback(async (categoryId: string) => {
         try {
-            const category = await service.getCategoryById(categoryId);
+            const category = categories.find((cat) => cat.categoryId === categoryId);
             if (category) {
                 setFormData((prev) => ({
                     ...prev,
-                    categoryId: category.categoryUuid,
+                    categoryId: category.categoryId,
                     categoryName: category.name
                 }));
             }
         } catch (error: any) {
             setErrors((prev) => ({ ...prev, category: "カテゴリ詳細の取得に失敗しました。" }));
         }
-    }, []);
+    }, [categories]);
 
     // --- 商品名入力終了時に重複を検証する ---
     const handleNameBlur = useCallback(async () => {

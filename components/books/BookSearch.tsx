@@ -100,7 +100,7 @@ export const BookSearch = () => {
                                             </span>
                                         </TableCell>
                                         <TableCell className="text-right">
-                                            {book.stock.stock} <span className="text-muted-foreground text-xs">個</span>
+                                            {book.stock} <span className="text-muted-foreground text-xs">個</span>
                                         </TableCell>
                                     </TableRow>
                                 ))}

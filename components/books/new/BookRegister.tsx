@@ -51,12 +51,12 @@ export const BookRegister = () => {
                     <div className="space-y-2">
                         <Label htmlFor="title">商品名</Label>
                         <Input
-                            id="name"
-                            name="name"
+                            id="title"
+                            name="title"
                             value={formData.title}
                             onChange={handleChange}
                             onBlur={handleNameBlur} // フォーカスアウト時に検証実行
-                            placeholder="例：高性能ワイヤレスマウス"
+                            placeholder="無題"
                             required
                         />
                         {errors.name && <p className="text-sm text-red-500">{errors.name}</p>}
@@ -71,7 +71,7 @@ export const BookRegister = () => {
                             </SelectTrigger>
                             <SelectContent>
                                 {categories.map((cat) => (
-                                    <SelectItem key={cat.categoryUuid} value={cat.categoryUuid}>
+                                    <SelectItem key={cat.categoryId} value={cat.categoryId}>
                                         {cat.name}
                                     </SelectItem>
                                 ))}
@@ -81,7 +81,7 @@ export const BookRegister = () => {
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
-                        {/* 価格入力 */}
+                        {/* 著者入力 */}
                         <div className="space-y-2">
                             <Label htmlFor="author">著者</Label>
                     <Input

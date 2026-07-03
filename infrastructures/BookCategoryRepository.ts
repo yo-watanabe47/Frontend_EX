@@ -15,7 +15,8 @@ export class BookCategoryRepository implements IBookCategoryRepository {
     async findAll(): Promise<BookCategory[]> {
         // const session = await getSession();
         // const token = (session as any)?.user?.token;
-        const response = await fetch("/proxy-api/books/register/categories", {
+                // const response = await fetch("/library/api/books/register/categories", {
+        const response = await fetch("/library/api/categories", {
             method: "GET",
             headers: {
                 // "Authorization": `Bearer ${token}`,
@@ -28,25 +29,26 @@ export class BookCategoryRepository implements IBookCategoryRepository {
         }
         return await response.json();
     }
-    /**
-     * 指定したIDの商品カテゴリを取得する
-     * @param id 商品カテゴリId(UUID)
-     * @returns 商品カテゴリ（非同期）
-     */
-    async findById(id: string): Promise<BookCategory> {
-        // const session = await getSession();
-        // const token = (session as any)?.user?.token;
-        const response = await fetch(`/proxy-api/books/register/categories/${id}`, {
-            method: "GET",
-            headers: {
-                // "Authorization": `Bearer ${token}`,
-                "Content-Type": "application/json"
-            }
-        });
+    // /**
+    //  * 指定したIDの商品カテゴリを取得する
+    //  * @param id 商品カテゴリId(UUID)
+    //  * @returns 商品カテゴリ（非同期）
+    //  */
+    // async findById(id: string): Promise<BookCategory> {
+    //     // const session = await getSession();
+    //     // const token = (session as any)?.user?.token;
+    //             // const response = await fetch(`/library/api/books/register/categories/${id}`, {
+    //     const response = await fetch(`/library/api/categories/${id}`, {
+    //         method: "GET",
+    //         headers: {
+    //             // "Authorization": `Bearer ${token}`,
+    //             "Content-Type": "application/json"
+    //         }
+    //     });
 
-        if (!response.ok) {
-            throw new Error("商品カテゴリ詳細の取得に失敗しました。");
-        }
-        return await response.json();
-    }
+    //     if (!response.ok) {
+    //         throw new Error("商品カテゴリ詳細の取得に失敗しました。");
+    //     }
+    //     return await response.json();
+    // }
 }

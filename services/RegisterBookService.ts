@@ -32,14 +32,14 @@ export class RegisterBookService implements IRegisterBookService {
         return await this.categoryRepository.findAll();
     }
 
-    /**h
-     * カテゴリ選択時: 指定したIDの商品カテゴリ詳細を取得する
-     * @param id 商品カテゴリId(UUID)
-     * @return 商品カテゴリ（非同期）
-     */
-    async getCategoryById(id: string): Promise<BookCategory> {
-        return await this.categoryRepository.findById(id);
-    }
+    // /**h
+    //  * カテゴリ選択時: 指定したIDの商品カテゴリ詳細を取得する
+    //  * @param id 商品カテゴリId(UUID)
+    //  * @return 商品カテゴリ（非同期）
+    //  */
+    // async getCategoryById(id: string): Promise<BookCategory> {
+    //     return await this.categoryRepository.findById(id);
+    // }
 
     /**
      * 入力終了時: 商品名の重複を検証する
